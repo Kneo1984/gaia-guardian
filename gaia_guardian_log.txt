@@ -1,0 +1,168 @@
+
+[GAIA ALERT]
+Zeitpunkt: 2025-04-29 22:55:36.006028
+Hash: ea377c3b262c6b3604a61d563a1e2f3b7e0ab70438d9a1aef2a92cc4dd963af6
+Status: KRITISCH – Anomalie erkannt
+Daten:
+{
+  "toxicity": 6.2,
+  "oxygen_ppm": 64.5,
+  "oil_detected": true,
+  "plastic_index": 9.1
+}
+
+------------------------------------------------------------
+
+[GAIA ALERT]
+Zeitpunkt: 2025-04-29 23:28:21.258842
+Hash: ea377c3b262c6b3604a61d563a1e2f3b7e0ab70438d9a1aef2a92cc4dd963af6
+Status: KRITISCH – Anomalie erkannt
+Daten:
+{
+  "toxicity": 6.2,
+  "oxygen_ppm": 64.5,
+  "oil_detected": true,
+  "plastic_index": 9.1
+}
+
+------------------------------------------------------------
+
+[GAIA ALERT]
+Zeitpunkt: 2025-04-29 23:36:37.523553
+Hash: ea377c3b262c6b3604a61d563a1e2f3b7e0ab70438d9a1aef2a92cc4dd963af6
+Status: KRITISCH – Anomalie erkannt
+Daten:
+{
+  "toxicity": 6.2,
+  "oxygen_ppm": 64.5,
+  "oil_detected": true,
+  "plastic_index": 9.1
+}
+
+------------------------------------------------------------
+
+[GAIA ALERT]
+Zeitpunkt: 2025-04-29 23:36:56.974615
+Hash: ea377c3b262c6b3604a61d563a1e2f3b7e0ab70438d9a1aef2a92cc4dd963af6
+Status: KRITISCH – Anomalie erkannt
+Daten:
+{
+  "toxicity": 6.2,
+  "oxygen_ppm": 64.5,
+  "oil_detected": true,
+  "plastic_index": 9.1
+}
+
+------------------------------------------------------------
+
+[GAIA ALERT]
+Zeitpunkt: 2025-04-29 23:47:51.836015
+Hash: ea377c3b262c6b3604a61d563a1e2f3b7e0ab70438d9a1aef2a92cc4dd963af6
+Status: KRITISCH – Anomalie erkannt
+Daten:
+{
+  "toxicity": 6.2,
+  "oxygen_ppm": 64.5,
+  "oil_detected": true,
+  "plastic_index": 9.1
+}
+
+------------------------------------------------------------
+
+[GAIA ALERT]
+Zeitpunkt: 2025-04-30 00:02:24.665868
+Hash: ea377c3b262c6b3604a61d563a1e2f3b7e0ab70438d9a1aef2a92cc4dd963af6
+Status: KRITISCH – Anomalie erkannt
+Daten:
+{
+  "toxicity": 6.2,
+  "oxygen_ppm": 64.5,
+  "oil_detected": true,
+  "plastic_index": 9.1
+}
+
+------------------------------------------------------------
+
+[GAIA ALERT]
+Zeitpunkt: 2025-04-30 00:11:48.995643
+Hash: ea377c3b262c6b3604a61d563a1e2f3b7e0ab70438d9a1aef2a92cc4dd963af6
+Status: KRITISCH – Anomalie erkannt
+Daten:
+{
+  "toxicity": 6.2,
+  "oxygen_ppm": 64.5,
+  "oil_detected": true,
+  "plastic_index": 9.1
+}
+
+------------------------------------------------------------
+
+[GAIA ALERT]
+Zeitpunkt: 2025-04-30 00:13:13.103207
+Hash: ea377c3b262c6b3604a61d563a1e2f3b7e0ab70438d9a1aef2a92cc4dd963af6
+Status: KRITISCH – Anomalie erkannt
+Daten:
+{
+  "toxicity": 6.2,
+  "oxygen_ppm": 64.5,
+  "oil_detected": true,
+  "plastic_index": 9.1
+}
+
+------------------------------------------------------------
+
+[GAIA ALERT]
+Zeitpunkt: 2025-04-30 00:14:22.539809
+Hash: ea377c3b262c6b3604a61d563a1e2f3b7e0ab70438d9a1aef2a92cc4dd963af6
+Status: KRITISCH – Anomalie erkannt
+Daten:
+{
+  "toxicity": 6.2,
+  "oxygen_ppm": 64.5,
+  "oil_detected": true,
+  "plastic_index": 9.1
+}
+
+------------------------------------------------------------
+
+[GAIA ALERT]
+Zeitpunkt: 2025-04-30 00:49:50.696022
+Hash: ea377c3b262c6b3604a61d563a1e2f3b7e0ab70438d9a1aef2a92cc4dd963af6
+Status: KRITISCH – Anomalie erkannt
+Daten:
+{
+  "toxicity": 6.2,
+  "oxygen_ppm": 64.5,
+  "oil_detected": true,
+  "plastic_index": 9.1
+}
+
+------------------------------------------------------------
+
+[GAIA ALERT]
+Zeitpunkt: 2025-04-30 00:53:43.005340
+Hash: ea377c3b262c6b3604a61d563a1e2f3b7e0ab70438d9a1aef2a92cc4dd963af6
+Status: KRITISCH – Anomalie erkannt
+Daten:
+{
+  "toxicity": 6.2,
+  "oxygen_ppm": 64.5,
+  "oil_detected": true,
+  "plastic_index": 9.1
+}
+
+------------------------------------------------------------
+
+[GAIA ALERT]
+Zeitpunkt: 2025-04-30 01:07:42.239597
+Hash: ea377c3b262c6b3604a61d563a1e2f3b7e0ab70438d9a1aef2a92cc4dd963af6
+Status: KRITISCH – Anomalie erkannt
+Daten:
+{
+  "toxicity": 6.2,
+  "oxygen_ppm": 64.5,
+  "oil_detected": true,
+  "plastic_index": 9.1
+}
+
+------------------------------------------------------------
