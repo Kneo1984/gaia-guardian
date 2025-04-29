@@ -177,12 +177,16 @@ def send_email(subject, body, sender_email, recipient_email, smtp_server, smtp_p
         print(" E-Mail Fehler:", e)
 
 #  Echte Zugangsdaten einsetzen
-sender_email = "jotmajonn@gmail.com"
-receiver_email = "jotmajonn@gmail.com"  # Du kannst auch eine andere Zieladresse wählen
-smtp_server = "smtp.gmail.com"
-smtp_port = 465
-login = "jotmajonn@gmail.com"
-password = "zyjx qxec pqjd xpdh"  # ← DEIN APP-PASSWORT
+sender_email    = os.getenv("EMAIL_SENDER")
+receiver_email  = os.getenv("EMAIL_RECIPIENT")
+smtp_server     = os.getenv("SMTP_SERVER")
+smtp_port       = int(os.getenv("SMTP_PORT"))
+login           = os.getenv("EMAIL_SENDER")
+password        = os.getenv("EMAIL_PASSWORD")
+
+telegram_token  = os.getenv("TELEGRAM_TOKEN")
+telegram_chat_id = os.getenv("TELEGRAM_CHAT_ID")
+
 
 # 📬 E-Mail senden
 send_email(
