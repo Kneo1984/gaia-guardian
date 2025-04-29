@@ -148,8 +148,8 @@ def send_telegram_message(message, token, chat_id):
         print(" Telegram-Ausnahme:", e)
 
 #  Aktueller Bot-Token & Chat-ID
-telegram_token = "7337515500:AAG_h-3FRUcYjJ4VQvpYgNu5h9lavokqIrQ"
-telegram_chat_id = "8169168616"
+telegram_token  = os.getenv("TELEGRAM_TOKEN")
+telegram_chat_id = os.getenv("TELEGRAM_CHAT_ID")
 
 #  Testnachricht senden
 send_telegram_message(" ShadowWächter: Verbindung aktiv. Der Wächter spricht nun.", telegram_token, telegram_chat_id)
@@ -439,15 +439,16 @@ def guardian_loop(scan_interval=180):
         time.sleep(scan_interval)
 
 # 🔐 Zugangsdaten (NUR lokal speichern)
-sender_email      = "jotmajonn@gmail.com"
-receiver_email    = "jotmajonn@gmail.com"
-smtp_server       = "smtp.gmail.com"
-smtp_port         = 465
-login             = "jotmajonn@gmail.com"
-password          = "zyjx qxec pqjd xpdh"
+sender_email    = os.getenv("EMAIL_SENDER")
+receiver_email  = os.getenv("EMAIL_RECIPIENT")
+smtp_server     = os.getenv("SMTP_SERVER")
+smtp_port       = int(os.getenv("SMTP_PORT"))
+login           = os.getenv("EMAIL_SENDER")
+password        = os.getenv("EMAIL_PASSWORD")
 
-telegram_token    = "7337515500:AAG_h-3FRUcYjJ4VQvpYgNu5h9lavokqIrQ"
-telegram_chat_id  = "8169168616"
+telegram_token  = os.getenv("TELEGRAM_TOKEN")
+telegram_chat_id = os.getenv("TELEGRAM_CHAT_ID")
+
 
 # 🚀 START
 # guardian_loop(180)   # Echtbetrieb alle 3 Minuten
