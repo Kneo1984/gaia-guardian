@@ -19,3 +19,9 @@ und reagiert automatisch mit:
 ## 🚀 Start
 ```bash
 python gaia_guardian_dashboard.py
+
+## ✍️ Urheber
+
+Dieses Projekt wurde entwickelt von **Dennis Maier (Kneo1984)**  
+© 2025 – Alle Rechte am Ursprungscode vorbehalten.  
+Freigegeben unter der MIT-Lizenz für offene und ethische Nutzung.
