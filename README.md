@@ -1,6 +1,10 @@
 # 🌍 Gaia Guardian
 
+
+⚠️ Geschützt durch Gaia Guardian License v1.0 – keine unautorisierte Nutzung.
 ⚠️ Lizenzhinweis  
+
+
 Dieses Projekt ist durch die "Gaia Guardian License v1.0 (Restricted)" geschützt.  
 Nutzung, Kopie oder kommerzielle Verwertung ohne ausdrückliche Erlaubnis ist untersagt.  
 
@@ -54,5 +58,6 @@ python gaia_guardian_dashboard.py
 Dieses Projekt wurde entwickelt von **Dennis Maier (Kneo1984)**  
 © 2025 – Alle Rechte am Ursprungscode vorbehalten.  
 Freigegeben unter der MIT-Lizenz für offene und ethische Nutzung.
+
 
 
