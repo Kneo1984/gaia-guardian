@@ -1,5 +1,9 @@
 # 🌍 Gaia Guardian
 
+⚠️ Lizenzhinweis  
+Dieses Projekt ist durch die "Gaia Guardian License v1.0 (Restricted)" geschützt.  
+Nutzung, Kopie oder kommerzielle Verwertung ohne ausdrückliche Erlaubnis ist untersagt.  
+
 **Gaia Guardian** ist ein intelligentes Umweltüberwachungssystem, das kritische Umweltdaten erkennt, automatisch protokolliert und Warnungen über Telegram und E-Mail versendet. Es wurde für ethische, friedliche und zukunftsgerichtete Anwendungen im Sinne der Erde und ihrer Lebewesen entwickelt.
 
 ---
@@ -50,4 +54,5 @@ python gaia_guardian_dashboard.py
 Dieses Projekt wurde entwickelt von **Dennis Maier (Kneo1984)**  
 © 2025 – Alle Rechte am Ursprungscode vorbehalten.  
 Freigegeben unter der MIT-Lizenz für offene und ethische Nutzung.
+
 
