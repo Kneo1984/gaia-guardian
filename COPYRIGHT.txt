@@ -1,0 +1,33 @@
+Copyright Notice – Gaia Guardian
+
+Urheber & Eigentümer:
+Dennis Maier (alias KNEO / Kneo1984)
+Krefeld, Deutschland
+© 2025 – Alle Rechte vorbehalten
+
+Dieses Werk, einschließlich aller Quellcodes, Dokumentationen, 
+Namen, Logos und Konzepte im Zusammenhang mit "Gaia Guardian", 
+steht im alleinigen Eigentum von Dennis Maier.
+
+Rechtsgrundlagen:
+- Deutsches Urheberrechtsgesetz (UrhG §§ 7 ff.)
+- Internationale Abkommen (Berner Übereinkunft, WIPO)
+
+Klarstellung des Eigentums:
+- Jegliche Forks, Kopien oder abgeleitete Werke bleiben 
+  rechtlich an den Ursprungscode gebunden und unterliegen 
+  denselben Restriktionen.
+- Kein Dritter erwirbt durch Download, Nutzung oder 
+  Modifikation irgendein Eigentums- oder Verwertungsrecht.
+- Dennis Maier behält das ausschließliche Nutzungs-, 
+  Veröffentlichungs- und Lizenzrecht.
+
+Durchsetzung:
+Unautorisierte Nutzung, insbesondere kommerzieller oder 
+missbräuchlicher Art, wird ohne Vorwarnung rechtlich verfolgt.
+Der Urheber behält sich Unterlassung, Schadensersatz sowie 
+strafrechtliche Schritte ausdrücklich vor.
+
+---
+Verfasser & Eigentümer: Dennis Maier (KNEO / Kneo1984)
+Datum: 2025
