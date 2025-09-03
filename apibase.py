@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """adodbapi.apibase - A python DB API 2.0 (PEP 249) interface to Microsoft ADO
 
 Copyright (C) 2002 Henrik Ekelund, version 2.1 by Vernon Cole

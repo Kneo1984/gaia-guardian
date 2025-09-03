@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """cat.py
 a version of unix cat, tweaked to show off runproc.py
 """

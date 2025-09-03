@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # AUREON_SUPERVISOR_VSCODE.py
 import os
 import json
@@ -38,7 +38,7 @@ def mission_erkennen(text):
     pfad = os.path.join(MISSIONS_PATH, filename)
     if not os.path.exists(pfad):
         with open(pfad, "w") as f:
-            f.write(f'# Mission: {text}\nprint("ðŸ§  Mission lÃ¤uft: {text}")\n')
+            f.write(f'# Mission: {text}\nprint("🧠 Mission läuft: {text}")\n')
         log_kontext(f"Neue Mission erstellt: {text}")
         return f"Mission erstellt: {text}"
     else:
@@ -48,7 +48,7 @@ def supervisor_loop():
     spreche("AUREON aktiviert. Ich warte auf deinen Befehl.")
     while True:
         try:
-            eingabe = input("ðŸ§¬ DU: ").strip()
+            eingabe = input("🧬 DU: ").strip()
             if eingabe.lower() in ["exit", "ende", "stopp"]:
                 spreche("Ich gehe in den Ruhezustand. Du kannst mich jederzeit wieder rufen.")
                 break

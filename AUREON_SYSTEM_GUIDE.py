@@ -1,5 +1,5 @@
-﻿# -*- coding: utf-8 -*-
-# AUTOHEILUNG: Unicode & Logging vollstÃ¤ndig robust
+# -*- coding: utf-8 -*-
+# AUTOHEILUNG: Unicode & Logging vollständig robust
 import os, json
 
 BASE = r"C:\Users\denni\OneDrive\Dokumente\APP-Echtzeit"
@@ -18,20 +18,20 @@ def list_files():
     return structure
 
 def generate_guidance(file_map):
-    lines = ["ðŸ”§ AUREON SYSTEM GUIDE:"]
-    lines.append("ðŸ§  Analyse abgeschlossen â€“ priorisierte Hinweise folgen.")
+    lines = ["🔧 AUREON SYSTEM GUIDE:"]
+    lines.append("🧠 Analyse abgeschlossen – priorisierte Hinweise folgen.")
     
     if ".py" in file_map:
-        lines.append(f"â–¶ï¸ Du hast {len(file_map['.py'])} Python-Skripte â€“ prÃ¼fe auf alte, doppelte oder unvollstÃ¤ndige.")
+        lines.append(f"▶️ Du hast {len(file_map['.py'])} Python-Skripte – prüfe auf alte, doppelte oder unvollständige.")
     if ".html" in file_map:
-        lines.append("ðŸŒ Web-Dateien erkannt â€“ mÃ¶chtest du daraus ein Interface generieren?")
+        lines.append("🌐 Web-Dateien erkannt – möchtest du daraus ein Interface generieren?")
     if "model.json" in str(file_map):
-        lines.append("ðŸ§¬ Modell-Dateien gefunden â€“ KI-Kern vorhanden.")
+        lines.append("🧬 Modell-Dateien gefunden – KI-Kern vorhanden.")
     if "log" in file_map:
-        lines.append("ðŸ“œ Logs vorhanden â€“ Analysiere letzte Systemmeldungen.")
+        lines.append("📜 Logs vorhanden – Analysiere letzte Systemmeldungen.")
     
-    lines.append("ðŸ“Œ Vorschlag: Starte als NÃ¤chstes âž¤ AUREON_MISSIONAI_LOGIC_CORE.py")
-    lines.append("ðŸ“Œ Optional: Nutze sprecher_windows.py fÃ¼r Sprache oder GUI-Dateien fÃ¼r Steuerung.")
+    lines.append("📌 Vorschlag: Starte als Nächstes ➤ AUREON_MISSIONAI_LOGIC_CORE.py")
+    lines.append("📌 Optional: Nutze sprecher_windows.py für Sprache oder GUI-Dateien für Steuerung.")
 
     return "\n".join(lines)
 
@@ -39,9 +39,9 @@ def save_guidance(text):
     try:
         with open(GUIDANCE_LOG, "w", encoding="utf-8") as f:
             f.write(text)
-        print(f"[âœ…] AUREON Guide gespeichert unter:\n{GUIDANCE_LOG}")
+        print(f"[✅] AUREON Guide gespeichert unter:\n{GUIDANCE_LOG}")
     except Exception as e:
-        print(f"[âŒ] Fehler beim Speichern des Guides: {e}")
+        print(f"[❌] Fehler beim Speichern des Guides: {e}")
 
 if __name__ == "__main__":
     files = list_files()

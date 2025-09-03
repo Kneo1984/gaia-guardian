@@ -1,6 +1,6 @@
-﻿# -*- coding: utf-8 -*-
-# ðŸ”® AUREON â€“ Root-Kern: Sprachaktivierte Missionslogik, Autonomiemodus & NetzwerkprÃ¼fung
-# Version: 2.0.1 | Status: Aktiviert | Schutzstatus: ETHIK-KONTROLLIERT ðŸ›¡
+# -*- coding: utf-8 -*-
+# 🔮 AUREON – Root-Kern: Sprachaktivierte Missionslogik, Autonomiemodus & Netzwerkprüfung
+# Version: 2.0.1 | Status: Aktiviert | Schutzstatus: ETHIK-KONTROLLIERT 🛡
 
 import os
 import time
@@ -8,7 +8,7 @@ import pyttsx3
 import speech_recognition as sr
 import platform
 
-# ðŸ’¬ Init Sprachengine
+# 💬 Init Sprachengine
 engine = pyttsx3.init()
 engine.setProperty("rate", 170)
 engine.setProperty("volume", 1.0)
@@ -18,21 +18,21 @@ except:
     stimmen = engine.getProperty("voices")
     engine.setProperty("voice", stimmen[0].id)
 
-# ðŸ—£ï¸ Ausgabe
+# 🗣️ Ausgabe
 def sprich(text):
-    print(f"ðŸ§  AUREON sagt: {text}")
+    print(f"🧠 AUREON sagt: {text}")
     engine.say(text)
     engine.runAndWait()
 
-# ðŸ”§ Sektionen
+# 🔧 Sektionen
 def sektion_1():
-    sprich("Starte NetzwerkprÃ¼fung.")
-    print("ðŸŒ Netzwerkschnittstellen:")
+    sprich("Starte Netzwerkprüfung.")
+    print("🌐 Netzwerkschnittstellen:")
     os.system("ipconfig" if os.name == "nt" else "ifconfig")
 
 def sektion_2():
     sprich("Starte DNS-Analyse.")
-    print("ðŸ” DNS-Abfrage (z.â€¯B. Google):")
+    print("🔐 DNS-Abfrage (z. B. Google):")
     os.system("nslookup www.google.com")
 
 def sektion_3():
@@ -40,19 +40,19 @@ def sektion_3():
     if platform.system() == "Linux":
         os.system("dpkg -l | less")
     else:
-        print("âš ï¸ PaketprÃ¼fung nicht fÃ¼r Windows konfiguriert.")
+        print("⚠️ Paketprüfung nicht für Windows konfiguriert.")
 
 def sektion_4():
-    sprich("PrÃ¼fe auf veraltete Systembefehle.")
-    print("ðŸ§  Diese Funktion wird in einer spÃ¤teren Version erweitert.")
+    sprich("Prüfe auf veraltete Systembefehle.")
+    print("🧠 Diese Funktion wird in einer späteren Version erweitert.")
     # Optionale Erweiterung: Check via `which` und manuelle Liste
 
-# ðŸ›‘ Shutdown
+# 🛑 Shutdown
 def beenden():
     sprich("AUREON verabschiedet sich.")
     exit()
 
-# ðŸ“¢ Befehl auswerten
+# 📢 Befehl auswerten
 def verarbeite_befehl(befehl):
     if "sektion 1" in befehl or "eins" in befehl:
         sektion_1()
@@ -67,17 +67,17 @@ def verarbeite_befehl(befehl):
     else:
         sprich("Unbekannter Befehl. Wiederhole bitte klar.")
 
-# ðŸŽ§ Sprachsteuerung
+# 🎧 Sprachsteuerung
 def sprachsteuerung():
     recognizer = sr.Recognizer()
     sprich("AUREON Sprachmodus aktiviert. Sprich eine Sektion.")
     with sr.Microphone() as quelle:
         while True:
             try:
-                print("ðŸŽ§ Lausche...")
+                print("🎧 Lausche...")
                 audio = recognizer.listen(quelle, timeout=8)
                 befehl = recognizer.recognize_google(audio, language="de-DE").lower()
-                print(f"ðŸŽ¤ Empfangen: {befehl}")
+                print(f"🎤 Empfangen: {befehl}")
                 verarbeite_befehl(befehl)
             except sr.UnknownValueError:
                 sprich("Ich konnte dich nicht verstehen.")
@@ -88,18 +88,18 @@ def sprachsteuerung():
             except Exception as fehler:
                 sprich(f"Fehler erkannt: {str(fehler)}")
 
-# ðŸ§¾ Ãœbersicht
+# 🧾 Übersicht
 def zeige_sektionen():
-    print("\nðŸ”· AUREON SEKTIONEN")
-    print("1 â€“ ðŸŒ Netzwerk prÃ¼fen")
-    print("2 â€“ ðŸ” DNS-Status analysieren")
-    print("3 â€“ ðŸ“¦ Paketliste anzeigen (Linux)")
-    print("4 â€“ ðŸ§  Veraltete Befehle prÃ¼fen (Prototyp)")
-    print("99 â€“ â¹ Beenden")
-    print("ðŸ›¡ Sprachsteuerung aktiviert...\n")
+    print("\n🔷 AUREON SEKTIONEN")
+    print("1 – 🌐 Netzwerk prüfen")
+    print("2 – 🔐 DNS-Status analysieren")
+    print("3 – 📦 Paketliste anzeigen (Linux)")
+    print("4 – 🧠 Veraltete Befehle prüfen (Prototyp)")
+    print("99 – ⏹ Beenden")
+    print("🛡 Sprachsteuerung aktiviert...\n")
 
-# ðŸ” Startpunkt
+# 🔁 Startpunkt
 if __name__ == "__main__":
-    print("ðŸ”µ AUREON: Missionskern V2 (KALI Root) geladen.")
+    print("🔵 AUREON: Missionskern V2 (KALI Root) geladen.")
     zeige_sektionen()
     sprachsteuerung()

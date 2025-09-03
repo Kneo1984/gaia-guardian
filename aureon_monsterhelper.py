@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # Datei: aureon_monsterhelper.py
 import os, time, platform, json
 import pyttsx3
@@ -21,7 +21,7 @@ def system_check():
         "Pfad": os.getcwd()
     }
     for k, v in info.items():
-        print(f"[ðŸ§ ] {k}: {v}")
+        print(f"[🧠] {k}: {v}")
     speak("Systemanalyse abgeschlossen.")
     return info
 
@@ -46,12 +46,12 @@ def dialogue_loop():
     memory = []
     while True:
         try:
-            user = input("ðŸ§¬ DU: ").strip()
+            user = input("🧬 DU: ").strip()
             if user.lower() in ["exit", "quit"]:
                 speak("Mission beendet.")
                 break
             response = f"AUREON erkennt: {user}"
-            print(f"ðŸ§  AUREON: {response}")
+            print(f"🧠 AUREON: {response}")
             memory.append({"du": user, "aureon": response})
             speak(response)
         except KeyboardInterrupt:

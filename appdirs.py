@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 This code wraps the vendored appdirs module to so the return values are
 compatible for the current pip code base.

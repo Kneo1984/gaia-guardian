@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 The main purpose of this module is to expose LinkCollector.collect_sources().
 """

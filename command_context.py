@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 from contextlib import ExitStack, contextmanager
 from typing import ContextManager, Generator, TypeVar
 

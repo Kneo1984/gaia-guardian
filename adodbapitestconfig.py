@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # Configure this to _YOUR_ environment in order to run the testcases.
 "testADOdbapiConfig.py v 2.6.2.B00"
 

@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import re
 import sys
 from contextlib import suppress
@@ -176,7 +176,7 @@ class AnsiDecoder:
                         # styles
                         self.style += _Style.parse(SGR_STYLE_MAP[code])
                     elif code == 38:
-                        # Â Foreground
+                        #  Foreground
                         with suppress(StopIteration):
                             color_type = next(iter_codes)
                             if color_type == 5:

@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # CallTips.py - An IDLE extension that provides "Call Tips" - ie, a floating window that
 # displays parameter information as you open parens.
 

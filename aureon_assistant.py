@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import os
 import pyttsx3
 import speech_recognition as sr
@@ -31,9 +31,9 @@ def plan_missions(system_info):
     missions = []
     for drive, count in system_info.items():
         if count > 1000:
-            missions.append(f"Bereinige unnÃ¶tige Dateien auf Laufwerk {drive}")
+            missions.append(f"Bereinige unnötige Dateien auf Laufwerk {drive}")
         else:
-            missions.append(f"ÃœberprÃ¼fe die Organisation der Dateien auf Laufwerk {drive}")
+            missions.append(f"Überprüfe die Organisation der Dateien auf Laufwerk {drive}")
     return missions
 
 # Hauptfunktion
@@ -45,7 +45,7 @@ def main():
     speak("Folgende Missionen wurden identifiziert:")
     for mission in missions:
         speak(mission)
-    speak("Bereit fÃ¼r weitere Anweisungen.")
+    speak("Bereit für weitere Anweisungen.")
 
 if __name__ == "__main__":
     main()

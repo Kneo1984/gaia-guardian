@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # Code generator to generate code for everything contained in COM type
 # libraries.
 import contextlib

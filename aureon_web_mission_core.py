@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import requests
 from bs4 import BeautifulSoup
 import pyttsx3
@@ -9,7 +9,7 @@ engine = pyttsx3.init()
 engine.setProperty('rate', 170)
 
 def speak(text):
-    print(f"ðŸŒ AUREON: {text}")
+    print(f"🌐 AUREON: {text}")
     engine.say(text)
     engine.runAndWait()
 
@@ -30,7 +30,7 @@ def create_missions_from_web():
     headlines = get_headlines()
     missions = []
     for hl in headlines:
-        missions.append(f"Informiere dich tiefer Ã¼ber: {hl}")
+        missions.append(f"Informiere dich tiefer über: {hl}")
     return missions
 
 # Hauptlogik

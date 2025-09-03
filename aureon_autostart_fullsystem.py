@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -25,7 +25,7 @@ def log(message):
 def ensure_dirs():
     for path in [MISSIONS_DIR, APP_ROOT / "logs", APP_ROOT / "responses"]:
         path.mkdir(parents=True, exist_ok=True)
-        log(f"ðŸ“ Ordner geprÃ¼ft: {path}")
+        log(f"📁 Ordner geprüft: {path}")
 
 def install_dependencies():
     pkgs = [
@@ -34,35 +34,35 @@ def install_dependencies():
     ]
     for pkg in pkgs:
         subprocess.run([sys.executable, "-m", "pip", "install", "--user", pkg], check=True)
-        log(f"âœ… Modul installiert: {pkg}")
+        log(f"✅ Modul installiert: {pkg}")
 
 def create_mission_scripts():
     dummy_code = {
-        "sektion1.py": 'print("ðŸŒ Sektion 1 aktiviert: NetzwerkÃ¼berprÃ¼fung gestartet.")',
-        "sektion2.py": 'print("ðŸ›°ï¸ Sektion 2 aktiviert: Internetverbindung & DNS werden geprÃ¼ft.")',
-        "sektion3.py": 'print("ðŸ” Sektion 3 aktiviert: Sicherheitseinstellungen werden validiert.")',
+        "sektion1.py": 'print("🌐 Sektion 1 aktiviert: Netzwerküberprüfung gestartet.")',
+        "sektion2.py": 'print("🛰️ Sektion 2 aktiviert: Internetverbindung & DNS werden geprüft.")',
+        "sektion3.py": 'print("🔐 Sektion 3 aktiviert: Sicherheitseinstellungen werden validiert.")',
     }
     for filename, code in dummy_code.items():
         (MISSIONS_DIR / filename).write_text(code, encoding="utf-8")
-        log(f"âš™ï¸ Dummy-Skript erstellt: {filename}")
+        log(f"⚙️ Dummy-Skript erstellt: {filename}")
 
 def start_gui():
     if not GUI_FILE.exists():
-        log("âŒ GUI-Datei nicht gefunden.")
+        log("❌ GUI-Datei nicht gefunden.")
         return
     subprocess.Popen([sys.executable, str(GUI_FILE)], shell=True)
-    log("ðŸš€ GUI gestartet: AUREON Cosmic Missions")
+    log("🚀 GUI gestartet: AUREON Cosmic Missions")
 
 def main():
-    log("ðŸ§  AUREON AUTOSTART BEGINNT...")
+    log("🧠 AUREON AUTOSTART BEGINNT...")
     ensure_dirs()
     install_dependencies()
     create_mission_scripts()
     start_gui()
-    log("âœ… AUTOSTART-VORGANG ABGESCHLOSSEN.")
+    log("✅ AUTOSTART-VORGANG ABGESCHLOSSEN.")
 
 if __name__ == "__main__":
     try:
         main()
     except Exception as e:
-        log(f"âŒ Fehler: {e}")
+        log(f"❌ Fehler: {e}")

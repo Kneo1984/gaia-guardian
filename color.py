@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import re
 import sys
 from colorsys import rgb_to_hls
@@ -320,7 +320,7 @@ class Color(NamedTuple):
 
         return Text.assemble(
             f"<color {self.name!r} ({self.type.name.lower()})",
-            ("â¬¤", Style(color=self)),
+            ("⬤", Style(color=self)),
             " >",
         )
 

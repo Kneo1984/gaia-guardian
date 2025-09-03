@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 from ctypes import WinDLL, _SimpleCData
 from typing import TYPE_CHECKING, Any, Callable
 

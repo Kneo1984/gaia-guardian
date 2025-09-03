@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
@@ -16,34 +16,34 @@ def log(msg):
     print(msg)
 
 def activate_firewall():
-    log("ðŸ” Aktiviere Firewall...")
+    log("🔐 Aktiviere Firewall...")
     subprocess.call(["ufw", "enable"])
 
 def monitor_ports():
-    log("ðŸ“Š Ãœberwache aktive Ports & Prozesse...")
+    log("📊 Überwache aktive Ports & Prozesse...")
     result = subprocess.check_output(["ss", "-tulnp"]).decode()
     with open(logfile, "a") as f:
         f.write(result)
 
 def ids_scan():
-    log("ðŸ§  Starte Sicherheits-Scan (nmap & fail2ban)...")
+    log("🧠 Starte Sicherheits-Scan (nmap & fail2ban)...")
     subprocess.call(["nmap", "-T4", "-F", "localhost"])
     subprocess.call(["fail2ban-client", "status"])
 
 def analyze_system():
-    log("ðŸ” AUREON SYSTEM GUIDE aktiv...")
+    log("🔍 AUREON SYSTEM GUIDE aktiv...")
     os.system("find ~ -name '*.py' > ~/python_scripts.txt")
     os.system("find ~ -name '*.html' > ~/web_files.txt")
     os.system("find ~ -name '*.bin' > ~/model_files.txt")
-    log("ðŸ§  Analyse abgeschlossen.")
+    log("🧠 Analyse abgeschlossen.")
 
 def main():
-    log("ðŸ’¥ AUREON SHIELD MONSTER KALI AKTIVIERT")
+    log("💥 AUREON SHIELD MONSTER KALI AKTIVIERT")
     activate_firewall()
     monitor_ports()
     ids_scan()
     analyze_system()
-    log("âœ… KALI SHIELD-LAUF BEENDET.")
+    log("✅ KALI SHIELD-LAUF BEENDET.")
 
 if __name__ == "__main__":
     main()

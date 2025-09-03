@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ## demonstrates using BackupRead and BackupWrite to copy all of a file's data streams
 
 import ntsecuritycon

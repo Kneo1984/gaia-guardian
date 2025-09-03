@@ -1,5 +1,5 @@
-﻿# -*- coding: utf-8 -*-
-# aurora_core/aurora_befehlsausführung.py
+# -*- coding: utf-8 -*-
+# aurora_core/aurora_befehlsausf�hrung.py
 
 class Befehlseinheit:
     def status(self):

@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 from ctypes import POINTER, Structure, c_ulong
 from typing import TYPE_CHECKING, Tuple
 from typing import Union as _UnionT

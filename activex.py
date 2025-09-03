@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """Support for ActiveX control hosting in Pythonwin."""
 
 import win32ui

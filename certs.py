@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 #!/usr/bin/env python
 
 """
@@ -6,7 +6,7 @@ requests.certs
 ~~~~~~~~~~~~~~
 
 This module returns the preferred default CA certificate bundle. There is
-only one â€” the one from the certifi package.
+only one — the one from the certifi package.
 
 If you are packaging Requests, e.g., for a Linux distribution or a managed
 environment, you can change the definition of where() to return a separately

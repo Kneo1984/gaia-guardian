@@ -1,5 +1,5 @@
-﻿# -*- coding: utf-8 -*-
-# ðŸ”° AUREON MISSION CORE â€“ Sprachgesteuerte Schutz- & Analyseinstanz
+# -*- coding: utf-8 -*-
+# 🔰 AUREON MISSION CORE – Sprachgesteuerte Schutz- & Analyseinstanz
 import os
 import time
 import json
@@ -12,18 +12,18 @@ from datetime import datetime
 
 LOG_PATH = "logs/mission_log.json"
 
-# ðŸ”Š Sprachausgabe
+# 🔊 Sprachausgabe
 engine = pyttsx3.init()
 engine.setProperty("rate", 165)
 engine.setProperty("volume", 1.0)
 engine.setProperty("voice", engine.getProperty('voices')[0].id)
 
 def spreche(text):
-    print("ðŸ§  AUREON:", text)
+    print("🧠 AUREON:", text)
     engine.say(text)
     engine.runAndWait()
 
-# ðŸ§  Logging
+# 🧠 Logging
 def log_event(event, details=""):
     eintrag = {
         "zeit": datetime.now().isoformat(),
@@ -34,9 +34,9 @@ def log_event(event, details=""):
     with open(LOG_PATH, "a", encoding="utf-8") as f:
         f.write(json.dumps(eintrag, ensure_ascii=False) + "\n")
 
-# ðŸŒ Netzwerkprüfung
+# 🌐 Netzwerkpr�fung
 def netzwerk_scan():
-    spreche("Starte Netzwerkprüfung...")
+    spreche("Starte Netzwerkpr�fung...")
     try:
         hostname = socket.gethostname()
         ip = socket.gethostbyname(hostname)
@@ -48,27 +48,27 @@ def netzwerk_scan():
         spreche("Fehler beim Netzwerk-Scan.")
         log_event("Netzwerk-Fehler", str(e))
 
-# ðŸ§ª DNS-Härtungstest
+# 🧪 DNS-H�rtungstest
 def dns_schutz_check():
-    spreche("Überprüfe DNS-Konfiguration...")
+    spreche("�berpr�fe DNS-Konfiguration...")
     try:
         ausgabe = subprocess.check_output("ipconfig /all", shell=True, encoding="utf-8")
         if "8.8.8.8" in ausgabe or "1.1.1.1" in ausgabe:
-            spreche("Öffentliche DNS erkannt. Empfehlung: DNS absichern.")
+            spreche("�ffentliche DNS erkannt. Empfehlung: DNS absichern.")
         else:
-            spreche("DNS-Konfiguration unauffällig.")
-        log_event("DNS-Scan", "Durchgeführt")
+            spreche("DNS-Konfiguration unauff�llig.")
+        log_event("DNS-Scan", "Durchgef�hrt")
     except Exception as e:
         spreche("DNS-Check fehlgeschlagen.")
         log_event("DNS-Fehler", str(e))
 
-# ðŸ“¡ TOR-Status
+# 📡 TOR-Status
 def tor_status():
     try:
         output = subprocess.check_output("tasklist", shell=True, encoding="utf-8")
         if "tor.exe" in output.lower():
             spreche("Tor ist aktiv. IP-Tarnung wahrscheinlich.")
-            log_event("TOR-Status", "Tor läuft")
+            log_event("TOR-Status", "Tor l�uft")
         else:
             spreche("Tor scheint inaktiv.")
             log_event("TOR-Status", "Tor nicht erkannt")
@@ -76,8 +76,8 @@ def tor_status():
         spreche("Tor-Status konnte nicht ermittelt werden.")
         log_event("TOR-Fehler", str(e))
 
-# ðŸ§  Sprachsteuerung
-def befehl_ausführen(befehl):
+# 🧠 Sprachsteuerung
+def befehl_ausf�hren(befehl):
     befehl = befehl.lower()
     if "netzwerk" in befehl:
         netzwerk_scan()
@@ -90,33 +90,33 @@ def befehl_ausführen(befehl):
         spreche(f"Es ist {jetzt}.")
         log_event("Zeitabfrage")
     elif "beenden" in befehl:
-        spreche("Ich ziehe mich zurück. Ruf mich, wenn du mich brauchst.")
+        spreche("Ich ziehe mich zur�ck. Ruf mich, wenn du mich brauchst.")
         log_event("Session-Ende")
         exit(0)
     else:
-        spreche("Befehl nicht erkannt. Bitte präzisieren.")
+        spreche("Befehl nicht erkannt. Bitte pr�zisieren.")
         log_event("Unbekannter Befehl", befehl)
 
-# ðŸŽ¤ Sprachinteraktion starten
+# 🎤 Sprachinteraktion starten
 def mission_starten():
     spreche("Mission gestartet. Ich bin wachsam.")
     recognizer = sr.Recognizer()
     while True:
         with sr.Microphone() as quelle:
-            print("ðŸŽ§ AUREON lauscht...")
+            print("🎧 AUREON lauscht...")
             try:
                 audio = recognizer.listen(quelle, timeout=8)
                 befehl = recognizer.recognize_google(audio, language="de-DE")
-                print("ðŸ—£ï¸ Befehl empfangen:", befehl)
-                befehl_ausführen(befehl)
+                print("🗣️ Befehl empfangen:", befehl)
+                befehl_ausf�hren(befehl)
             except sr.UnknownValueError:
-                spreche("Akustisch unverständlich.")
+                spreche("Akustisch unverst�ndlich.")
             except sr.WaitTimeoutError:
                 spreche("Kein Sprachsignal erkannt.")
             except Exception as e:
                 spreche("Fehler bei der Spracherkennung.")
                 log_event("Spracherkennung-Fehler", str(e))
 
-# ðŸ” Direkter Start
+# 🔁 Direkter Start
 if __name__ == "__main__":
     mission_starten()

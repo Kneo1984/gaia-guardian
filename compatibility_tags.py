@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """Generate and work with PEP 425 Compatibility Tags.
 """
 

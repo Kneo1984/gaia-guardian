@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # Application stuff.
 # The application is responsible for managing the main frame window.
 #

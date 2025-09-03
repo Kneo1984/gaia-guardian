@@ -1,5 +1,5 @@
-﻿# -*- coding: utf-8 -*-
-# ðŸ”° AUREON MISSION CORE V2 â€“ Sprach- und Nummerneingabe
+# -*- coding: utf-8 -*-
+# 🔰 AUREON MISSION CORE V2 – Sprach- und Nummerneingabe
 import os
 import time
 import json
@@ -12,18 +12,18 @@ from datetime import datetime
 
 LOG_PATH = "logs/aureon_core_log.json"
 
-# ðŸ”Š Sprachengine initialisieren
+# 🔊 Sprachengine initialisieren
 engine = pyttsx3.init()
 engine.setProperty("rate", 165)
 engine.setProperty("volume", 1.0)
 engine.setProperty("voice", engine.getProperty("voices")[0].id)
 
 def spreche(text):
-    print("ðŸ§  AUREON:", text)
+    print("🧠 AUREON:", text)
     engine.say(text)
     engine.runAndWait()
 
-# ðŸ““ Logging
+# 📓 Logging
 def log_event(sektion, ereignis, details=""):
     eintrag = {
         "zeit": datetime.now().isoformat(),
@@ -35,10 +35,10 @@ def log_event(sektion, ereignis, details=""):
     with open(LOG_PATH, "a", encoding="utf-8") as f:
         f.write(json.dumps(eintrag, ensure_ascii=False) + "\n")
 
-# ðŸ”Ž Sektionen
+# 🔎 Sektionen
 def sektion_1():
-    sektion = "1. NetzwerkprÃ¼fung"
-    spreche("Starte NetzwerkprÃ¼fung.")
+    sektion = "1. Netzwerkprüfung"
+    spreche("Starte Netzwerkprüfung.")
     try:
         hostname = socket.gethostname()
         ip = socket.gethostbyname(hostname)
@@ -46,7 +46,7 @@ def sektion_1():
         log_event(sektion, "Erkannt", f"IP: {ip}, Verbindungen: {ports}")
         spreche(f"IP: {ip}. {len(ports)} aktive Verbindungen.")
     except Exception as e:
-        spreche("NetzwerkprÃ¼fung fehlgeschlagen.")
+        spreche("Netzwerkprüfung fehlgeschlagen.")
         log_event(sektion, "Fehler", str(e))
 
 def sektion_2():
@@ -55,9 +55,9 @@ def sektion_2():
     try:
         ausgabe = subprocess.check_output("cat /etc/resolv.conf", shell=True, encoding="utf-8")
         if "8.8.8.8" in ausgabe or "1.1.1.1" in ausgabe:
-            spreche("Ã–ffentliche DNS erkannt.")
+            spreche("Öffentliche DNS erkannt.")
         else:
-            spreche("DNS unauffÃ¤llig.")
+            spreche("DNS unauffällig.")
         log_event(sektion, "Analyse erfolgreich", ausgabe.strip())
     except Exception as e:
         spreche("Fehler bei DNS-Analyse.")
@@ -65,11 +65,11 @@ def sektion_2():
 
 def sektion_3():
     sektion = "3. dpkg Analyse"
-    spreche("Starte PaketÃ¼berprÃ¼fung.")
+    spreche("Starte Paketüberprüfung.")
     try:
         out = subprocess.check_output("dpkg -l", shell=True, encoding="utf-8")
         log_event(sektion, "Pakete erkannt", out[:300])
-        spreche("Pakete geprÃ¼ft und protokolliert.")
+        spreche("Pakete geprüft und protokolliert.")
     except Exception as e:
         spreche("dpkg-Analyse fehlgeschlagen.")
         log_event(sektion, "Fehler", str(e))
@@ -89,25 +89,25 @@ def sektion_4():
         if gefunden:
             for alt, neu in gefunden:
                 spreche(f"{alt} ist veraltet. Empfehlung: {neu}")
-                log_event(sektion, "Veraltet", f"{alt} â†’ {neu}")
+                log_event(sektion, "Veraltet", f"{alt} → {neu}")
         else:
             spreche("Keine veralteten Befehle erkannt.")
     except Exception as e:
         spreche("Fehler beim Befehlsscan.")
         log_event(sektion, "Fehler", str(e))
 
-# ðŸŽ¤ Sprach- und Texteingabe
+# 🎤 Sprach- und Texteingabe
 def sprachsteuerung():
     spreche("Sprach- oder Nummerneingabe aktiv. Sage oder tippe eine Sektion.")
     while True:
         with sr.Microphone() as quelle:
             recognizer = sr.Recognizer()
             try:
-                print("\nðŸ’¬ Eingabe per Sprache oder Nummer:")
+                print("\n💬 Eingabe per Sprache oder Nummer:")
                 audio = recognizer.listen(quelle, timeout=8)
                 befehl = recognizer.recognize_google(audio, language="de-DE").lower()
             except Exception:
-                befehl = input("âž¡ï¸ Nummer eingeben (1â€“4, 99): ").strip().lower()
+                befehl = input("➡️ Nummer eingeben (1–4, 99): ").strip().lower()
 
         if "sektion 1" in befehl or befehl == "1":
             sektion_1()
@@ -118,12 +118,12 @@ def sprachsteuerung():
         elif "sektion 4" in befehl or befehl == "4":
             sektion_4()
         elif "beenden" in befehl or befehl == "99":
-            spreche("Mission beendet. Ich ziehe mich zurÃ¼ck.")
+            spreche("Mission beendet. Ich ziehe mich zurück.")
             break
         else:
             spreche("Befehl nicht erkannt.")
 
-# â–¶ Startpunkt
+# ▶ Startpunkt
 if __name__ == "__main__":
     spreche("AUREON CORE V2 Interaktiv-Modus geladen.")
     sprachsteuerung()

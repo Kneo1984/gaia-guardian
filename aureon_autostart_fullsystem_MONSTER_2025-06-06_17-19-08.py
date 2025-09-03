@@ -1,24 +1,24 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-AUREON â€ VollstÃ¤ndiger Autostartâ€‘Launcher (MONSTER Edition)
+AUREON ‐ Vollständiger Autostart‑Launcher (MONSTER Edition)
 Dateiname : aureon_autostart_fullsystem_MONSTER_2025-06-06_17-19-08.py
 Pfad      : C:/Users/denni/OneDrive/Dokumente/APP-Echtzeit/
-Version   : 2025â€‘06â€‘22 (Rootâ€‘optimiert)
+Version   : 2025‑06‑22 (Root‑optimiert)
 
 Beschreibung
 ============
-â€¢ PrÃ¼ft/legt Missionsâ€‘, Logâ€‘ und Responseâ€‘Ordner an
-â€¢ Installiert fehlende Pythonâ€‘AbhÃ¤ngigkeiten (falls nÃ¶tig)
-â€¢ Erstellt Dummyâ€‘Missionsskripte, wenn keine vorhanden
-â€¢ Startet erkannte Missionsskripte im Hintergrund
-â€¢ LÃ¤dt die Cosmicâ€‘GUI
+• Prüft/legt Missions‑, Log‑ und Response‑Ordner an
+• Installiert fehlende Python‑Abhängigkeiten (falls nötig)
+• Erstellt Dummy‑Missionsskripte, wenn keine vorhanden
+• Startet erkannte Missionsskripte im Hintergrund
+• Lädt die Cosmic‑GUI
 
 Hinweis
 =======
 Die automatische Installation verwendet **kein** `--user`, sodass der Code
-innerhalb von Virtualâ€‘Environments ebenso funktioniert wie systemweit.
+innerhalb von Virtual‑Environments ebenso funktioniert wie systemweit.
 """
 
 import importlib
@@ -50,14 +50,14 @@ def log(message: str) -> None:
 
 
 def ensure_dirs() -> None:
-    """Erzeugt benÃ¶tigte Verzeichnisse, falls sie fehlen."""
+    """Erzeugt benötigte Verzeichnisse, falls sie fehlen."""
     for path in (MISSIONS_DIR, LOG_DIR, RESP_DIR):
         path.mkdir(parents=True, exist_ok=True)
-        log(f"ðŸ“ Ordner geprÃ¼ft: {path}")
+        log(f"📁 Ordner geprüft: {path}")
 
 
 def install_dependencies() -> None:
-    """Installiert fehlende AbhÃ¤ngigkeiten ohne --userâ€‘Flag."""
+    """Installiert fehlende Abhängigkeiten ohne --user‑Flag."""
     pkgs = [
         "pyttsx3",
         "SpeechRecognition",
@@ -68,61 +68,61 @@ def install_dependencies() -> None:
     for pkg in pkgs:
         try:
             importlib.import_module(pkg.split("==")[0].lower())
-            log(f"âœ… Modul bereits vorhanden: {pkg}")
+            log(f"✅ Modul bereits vorhanden: {pkg}")
         except ImportError:
-            log(f"â¬‡ï¸  Installiere fehlendes Modul: {pkg}")
+            log(f"⬇️  Installiere fehlendes Modul: {pkg}")
             subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
-            log(f"âœ… Modul installiert: {pkg}")
+            log(f"✅ Modul installiert: {pkg}")
 
 
 def create_dummy_missions() -> None:
-    """Erstellt Beispielâ€‘Missionsskripte, falls Missionsordner leer ist."""
+    """Erstellt Beispiel‑Missionsskripte, falls Missionsordner leer ist."""
     dummy_code = {
-        "sektion1.py": 'print("ðŸŒ SektionÂ 1 aktiviert: NetzwerkÃ¼berprÃ¼fung â€¦")',
-        "sektion2.py": 'print("ðŸ›°ï¸  SektionÂ 2 aktiviert: Internetverbindung â€¦")',
-        "sektion3.py": 'print("ðŸ” SektionÂ 3 aktiviert: Sicherheitseinstellungen â€¦")',
+        "sektion1.py": 'print("🌐 Sektion 1 aktiviert: Netzwerküberprüfung …")',
+        "sektion2.py": 'print("🛰️  Sektion 2 aktiviert: Internetverbindung …")',
+        "sektion3.py": 'print("🔐 Sektion 3 aktiviert: Sicherheitseinstellungen …")',
     }
     if any(MISSIONS_DIR.iterdir()):
-        log("ðŸ“„ Missionsskripte bereits vorhanden â€“ Dummyâ€‘Erstellung Ã¼bersprungen.")
+        log("📄 Missionsskripte bereits vorhanden – Dummy‑Erstellung übersprungen.")
         return
     for filename, code in dummy_code.items():
         filepath = MISSIONS_DIR / filename
         filepath.write_text(code, encoding="utf-8")
-        log(f"âš™ï¸  Dummyâ€‘Skript erstellt: {filename}")
+        log(f"⚙️  Dummy‑Skript erstellt: {filename}")
 
 
 def run_missions() -> None:
     """Startet jedes Missionsskript als separaten Prozess."""
     missions = sorted(MISSIONS_DIR.glob("*.py"))
-    log("ðŸ” Spiegelmodus aktiviert â€“ erkannte Missionen: " + ", ".join(m.name for m in missions))
+    log("🔍 Spiegelmodus aktiviert – erkannte Missionen: " + ", ".join(m.name for m in missions))
     for mission in missions:
-        log(f"âœ¨ Starte Mission: {mission.name}")
+        log(f"✨ Starte Mission: {mission.name}")
         subprocess.Popen([sys.executable, str(mission)], shell=False)
 
 
 def start_gui() -> None:
-    """Startet die Cosmicâ€‘GUI, falls vorhanden."""
+    """Startet die Cosmic‑GUI, falls vorhanden."""
     if not GUI_FILE.exists():
-        log("âŒ GUIâ€‘Datei nicht gefunden: " + str(GUI_FILE))
+        log("❌ GUI‑Datei nicht gefunden: " + str(GUI_FILE))
         return
     subprocess.Popen([sys.executable, str(GUI_FILE)], shell=False)
-    log("ðŸš€ GUI gestartet: AUREON Cosmic Missions")
+    log("🚀 GUI gestartet: AUREON Cosmic Missions")
 
 
 # === HAUPTPLAN ==============================================================
 
 def main() -> None:
-    log("ðŸ§  AUREON AUTOSTART BEGINNTâ€¦")
+    log("🧠 AUREON AUTOSTART BEGINNT…")
     ensure_dirs()
     install_dependencies()
     create_dummy_missions()
     run_missions()
     start_gui()
-    log("âœ… AUTOSTARTâ€‘VORGANG ABGESCHLOSSEN.")
+    log("✅ AUTOSTART‑VORGANG ABGESCHLOSSEN.")
 
 
 if __name__ == "__main__":
     try:
         main()
     except Exception as exc:
-        log(f"âŒ Fehler: {exc}")
+        log(f"❌ Fehler: {exc}")

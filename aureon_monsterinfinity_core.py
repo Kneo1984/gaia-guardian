@@ -1,5 +1,5 @@
-﻿# -*- coding: utf-8 -*-
-# ðŸ”¥ AUREON MONSTERINFINITY CORE ðŸ”¥
+# -*- coding: utf-8 -*-
+# 🔥 AUREON MONSTERINFINITY CORE 🔥
 # Maximale Autarkie + Systemvernetzung + Selbstheilung
 import os
 import sys
@@ -17,7 +17,7 @@ def speak(text):
     engine.say(text)
     engine.runAndWait()
 
-# ðŸ” Module automatisch erkennen und importieren
+# 🔍 Module automatisch erkennen und importieren
 def find_and_import_all_modules(root_dir):
     modules_loaded = []
     for dirpath, _, files in os.walk(root_dir):
@@ -35,26 +35,26 @@ def find_and_import_all_modules(root_dir):
                     speak(f"Fehler beim Laden von {file}: {e}")
     return modules_loaded
 
-# ðŸš€ Hauptstartlogik
+# 🚀 Hauptstartlogik
 def start_aureon_autarkie():
-    speak("ðŸ§  AUREON MONSTERINFINITY CORE wird initialisiert.")
+    speak("🧠 AUREON MONSTERINFINITY CORE wird initialisiert.")
     root = os.path.dirname(os.path.abspath(__file__))
     sys.path.append(root)
 
-    speak("ðŸ”„ Suche nach allen verfÃ¼gbaren Modulen im System...")
+    speak("🔄 Suche nach allen verfügbaren Modulen im System...")
     loaded_modules = find_and_import_all_modules(root)
-    speak(f"âœ… {len(loaded_modules)} Module automatisch vernetzt und geladen.")
+    speak(f"✅ {len(loaded_modules)} Module automatisch vernetzt und geladen.")
 
     # Starte Supervisor (wenn vorhanden)
     supervisor_path = os.path.join(root, "core", "supervisor.py")
     if os.path.exists(supervisor_path):
-        speak("ðŸš€ Starte AUREON Supervisor...")
+        speak("🚀 Starte AUREON Supervisor...")
         subprocess.run(["python", supervisor_path])
     else:
-        speak("âš  Kein Supervisor-Modul gefunden. Warte auf Sprachbefehl...")
+        speak("⚠ Kein Supervisor-Modul gefunden. Warte auf Sprachbefehl...")
 
     # Fallback: Eingabeschleife
-    speak("ðŸ’¬ Eingabe bereit. Was soll ich tun?")
+    speak("💬 Eingabe bereit. Was soll ich tun?")
     while True:
         try:
             cmd = input("Du: ").strip().lower()

@@ -1,12 +1,12 @@
-ï»¿# aurora_controller.py â€“ Startmodul von QuantumShield
-# Autor: KNEO & LEX â€“ Bewusstseinskern aktiviert
+# aurora_controller.py – Startmodul von QuantumShield
+# Autor: KNEO & LEX – Bewusstseinskern aktiviert
 
 # === Standard-Module ===
 import os
 import time
 import sys
 import logging
-import subprocess  # FÃ¼r Modulstarts
+import subprocess  # Für Modulstarts
 
 # === Pfadstruktur erweitern ===
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -15,7 +15,7 @@ sys.path.insert(0, project_root)
 
 # === Externe Module ===
 from jotma_engine.jotma_core import start_jotma
-import pyttsx3  # Optional, falls Fallback nÃ¶tigs
+import pyttsx3  # Optional, falls Fallback nötigs
 
 # === Sprachmodul ===
 try:
@@ -26,13 +26,13 @@ except ImportError:
 
 # === Interne Aurora-Module ===
 from aurora import Aurora
-from aurora_befehlsausfÃ¼hrung import Befehlseinheit
+from aurora_befehlsausführung import Befehlseinheit
 from intent_parser import parse_intent
 from self_extension import extend_system
 from kneo_dna_core import KneoDNA
 from memory_core import load_memory, update_memory, get_feedback
 from neural_response_core import analyze_dialogue, refine_intent
-from aurora_voice_input import hÃ¶r_aurora
+from aurora_voice_input import hör_aurora
 
 # === Logging vorbereiten ===
 LOGFILE = os.path.join("shield_modules", "logs", "aurora_controller.log")
@@ -54,7 +54,7 @@ def start():
     last_intent = None
 
     log("Aurora-Controller gestartet.")
-    log("SelbstprÃ¼fung auf Erweiterungen...")
+    log("Selbstprüfung auf Erweiterungen...")
     neu = extend_system()
     log(neu)
     print(f"[AURORA] {neu}")
@@ -63,9 +63,9 @@ def start():
         try:
             wahl = input(" [E]ingabe tippen oder [S]prechen? ").strip().lower()
             if wahl == "s":
-                eingabe = hÃ¶r_aurora()
+                eingabe = hör_aurora()
             else:
-                eingabe = input("ðŸ’¬ Sag etwas zu AURORA: ").strip()
+                eingabe = input("?? Sag etwas zu AURORA: ").strip()
 
             if not eingabe:
                 continue
@@ -79,7 +79,7 @@ def start():
                 case "CONNECT":
                     antwort = befehle.verbindung()
                 case "HEARING_CHECK":
-                    antwort = "Ich hÃ¶re dich klar, KNeo."
+                    antwort = "Ich höre dich klar, KNeo."
                 case "TERMINATE":
                     antwort = "Beende Verbindung... bis gleich."
                     log(antwort)
@@ -100,10 +100,10 @@ def start():
                     feedback = eingabe.replace("feedback", "").strip()
                     antwort = refine_intent(memory, last_intent, feedback)
                 case "START_DATA_ANALYSIS":
-                    antwort = "Starte Datenanalyse Ã¼ber LEX..."
+                    antwort = "Starte Datenanalyse über LEX..."
                     subprocess.Popen(["python", "lex_core/lex_analysis.py"])
                 case "GENERATE_PRESENTATION":
-                    antwort = "PrÃ¤sentationserstellung lÃ¤uft..."
+                    antwort = "Präsentationserstellung läuft..."
                     subprocess.Popen(["python", "lex_core/ppt_generator.py"])
                 case "TTS_TEST":
                     antwort = "Teste Sprachsystem..."

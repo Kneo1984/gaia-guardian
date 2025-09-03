@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # config.py - deals with loading configuration information.
 
 # Loads config data from a .cfg file.  Also caches the compiled

@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # basictimerapp - a really simple timer application.
 # This should be run using the command line:
 # pythonwin /app demos\basictimerapp.py

@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # AUREON_MISSIONAI_PRIMUS.py
 import os
 import json
@@ -18,13 +18,13 @@ def spreche(text):
 
 def erkenne_status(inhalt):
     if not inhalt.strip():
-        return "ðŸ•³ï¸ Leer"
+        return "🕳️ Leer"
     elif "TODO" in inhalt or "pass" in inhalt or "..." in inhalt:
-        return "ðŸ”§ UnvollstÃ¤ndig"
+        return "🔧 Unvollständig"
     elif "print(" in inhalt:
-        return "âœ… Aktiv"
+        return "✅ Aktiv"
     else:
-        return "ðŸ“¦ Unklar"
+        return "📦 Unklar"
 
 def analysiere():
     daten = {"fertig": [], "offen": [], "leer": []}
@@ -37,7 +37,7 @@ def analysiere():
             eintrag = {"name": file, "status": status, "preview": content.strip().split("\n")[0] if content else ""}
             if "Leer" in status:
                 daten["leer"].append(eintrag)
-            elif "UnvollstÃ¤ndig" in status or "Unklar" in status:
+            elif "Unvollständig" in status or "Unklar" in status:
                 daten["offen"].append(eintrag)
             else:
                 daten["fertig"].append(eintrag)
@@ -58,4 +58,4 @@ if __name__ == "__main__":
     daten = analysiere()
     report_speichern(daten)
     zusammenfassung(daten)
-    print(f"\nðŸ“„ Bericht gespeichert unter: {REPORT_PATH}")
+    print(f"\n📄 Bericht gespeichert unter: {REPORT_PATH}")

@@ -1,5 +1,5 @@
-﻿# -*- coding: utf-8 -*-
-# ðŸ”° AUREON MISSION CORE V2 â€“ Supervisor-Zentrale mit vollstÃ¤ndiger Systemkontrolle
+# -*- coding: utf-8 -*-
+# 🔰 AUREON MISSION CORE V2 – Supervisor-Zentrale mit vollständiger Systemkontrolle
 import os
 import time
 import json
@@ -12,18 +12,18 @@ from datetime import datetime
 
 LOG_PATH = "logs/aureon_core_log.json"
 
-# ðŸ”Š Sprachengine initialisieren
+# 🔊 Sprachengine initialisieren
 engine = pyttsx3.init()
 engine.setProperty("rate", 165)
 engine.setProperty("volume", 1.0)
 engine.setProperty("voice", engine.getProperty('voices')[0].id)
 
 def spreche(text):
-    print("ðŸ§  AUREON:", text)
+    print("🧠 AUREON:", text)
     engine.say(text)
     engine.runAndWait()
 
-# ðŸ““ Logging
+# 📓 Logging
 def log_event(sektion, ereignis, details=""):
     eintrag = {
         "zeit": datetime.now().isoformat(),
@@ -35,10 +35,10 @@ def log_event(sektion, ereignis, details=""):
     with open(LOG_PATH, "a", encoding="utf-8") as f:
         f.write(json.dumps(eintrag, ensure_ascii=False) + "\n")
 
-# ðŸ”Ž Sektion 1: NetzwerkprÃ¼fung (IP + Ports)
+# 🔎 Sektion 1: Netzwerkprüfung (IP + Ports)
 def sektion_1():
-    sektion = "1. NetzwerkprÃ¼fung"
-    spreche("Starte NetzwerkprÃ¼fung.")
+    sektion = "1. Netzwerkprüfung"
+    spreche("Starte Netzwerkprüfung.")
     try:
         hostname = socket.gethostname()
         ip = socket.gethostbyname(hostname)
@@ -46,37 +46,37 @@ def sektion_1():
         log_event(sektion, "Erkannt", f"IP: {ip}, Verbindungen: {ports}")
         spreche(f"Deine IP ist {ip}. {len(ports)} aktive Verbindungen.")
     except Exception as e:
-        spreche("NetzwerkprÃ¼fung fehlgeschlagen.")
+        spreche("Netzwerkprüfung fehlgeschlagen.")
         log_event(sektion, "Fehler", str(e))
 
-# ðŸ”Ž Sektion 2: DNS-Konfiguration checken
+# 🔎 Sektion 2: DNS-Konfiguration checken
 def sektion_2():
     sektion = "2. DNS Check"
     spreche("Analysiere DNS-Konfiguration.")
     try:
         ausgabe = subprocess.check_output("ipconfig /all", shell=True, encoding="utf-8")
         if "8.8.8.8" in ausgabe:
-            spreche("Ã–ffentlicher DNS erkannt. Empfehlung: DNS absichern.")
+            spreche("Öffentlicher DNS erkannt. Empfehlung: DNS absichern.")
         else:
-            spreche("DNS-Konfiguration unauffÃ¤llig.")
-        log_event(sektion, "Analyse erfolgreich", "8.8.8.8 geprÃ¼ft")
+            spreche("DNS-Konfiguration unauffällig.")
+        log_event(sektion, "Analyse erfolgreich", "8.8.8.8 geprüft")
     except Exception as e:
         spreche("Fehler bei DNS-Analyse.")
         log_event(sektion, "Fehler", str(e))
 
-# ðŸ”Ž Sektion 3: dpkg & apt Sicherheitsanalyse
+# 🔎 Sektion 3: dpkg & apt Sicherheitsanalyse
 def sektion_3():
-    sektion = "3. dpkg PrÃ¼fung"
+    sektion = "3. dpkg Prüfung"
     spreche("Starte dpkg Sicherheitsanalyse.")
     try:
         out = subprocess.check_output("dpkg -l", shell=True, encoding="utf-8")
         log_event(sektion, "Pakete erkannt", out[:300])
-        spreche("dpkg Liste geprÃ¼ft und protokolliert.")
+        spreche("dpkg Liste geprüft und protokolliert.")
     except Exception as e:
         spreche("dpkg Analyse fehlgeschlagen.")
         log_event(sektion, "Fehler", str(e))
 
-# ðŸ”Ž Sektion 4: Alte Befehle erkennen & modernisieren
+# 🔎 Sektion 4: Alte Befehle erkennen & modernisieren
 def sektion_4():
     sektion = "4. Befehlskonversion"
     mapping = {
@@ -92,14 +92,14 @@ def sektion_4():
         if gefunden:
             spreche("Veraltete Befehle gefunden und ersetzt.")
             for alt, neu in gefunden:
-                log_event(sektion, "Ersetzt", f"{alt} â†’ {neu}")
+                log_event(sektion, "Ersetzt", f"{alt} → {neu}")
         else:
             spreche("Keine veralteten Befehle gefunden.")
     except Exception as e:
         spreche("Fehler beim Befehlsscan.")
         log_event(sektion, "Fehler", str(e))
 
-# ðŸŽ¤ Sprachsteuerung aktivieren
+# 🎤 Sprachsteuerung aktivieren
 def sprachsteuerung():
     spreche("Sprachsteuerung aktiv. Bitte Sektion sagen.")
     while True:
@@ -117,7 +117,7 @@ def sprachsteuerung():
                 elif "sektion 4" in befehl:
                     sektion_4()
                 elif "beenden" in befehl:
-                    spreche("Mission beendet. Ich ziehe mich zurÃ¼ck.")
+                    spreche("Mission beendet. Ich ziehe mich zurück.")
                     break
                 else:
                     spreche("Befehl nicht erkannt.")
@@ -125,7 +125,7 @@ def sprachsteuerung():
                 spreche("Akustisches Problem erkannt.")
                 log_event("Spracheingabe", "Fehler", str(e))
 
-# â–¶ Starte alles
+# ▶ Starte alles
 if __name__ == "__main__":
     spreche("AUREON CORE V2 wird geladen.")
     sprachsteuerung()

@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """Unit tests version 2.6.1.0 for adodbapi"""
 
 """

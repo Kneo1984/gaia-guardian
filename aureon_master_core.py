@@ -1,5 +1,5 @@
-﻿# -*- coding: utf-8 -*-
-# ðŸ§  AUREON MASTERCORE â€“ VERBINDUNGSMODUS mit SUPERVISOR-ÃœBERNAHME
+# -*- coding: utf-8 -*-
+# 🧠 AUREON MASTERCORE – VERBINDUNGSMODUS mit SUPERVISOR-ÜBERNAHME
 
 import os
 import time
@@ -28,36 +28,36 @@ def spreche(text):
         if "german" in stimme.name.lower() or "hed" in stimme.name.lower():
             engine.setProperty('voice', stimme.id)
             break
-    print("ðŸ—£ï¸", text)
+    print("🗣️", text)
     engine.say(text)
     engine.runAndWait()
 
-# === MODULPRÃœFUNG ===
+# === MODULPRÜFUNG ===
 def lade_modul(modulname):
     pfad = BASE / modulname
     if not pfad.exists():
-        print(f"âŒ Modul fehlt: {modulname}")
+        print(f"❌ Modul fehlt: {modulname}")
         return False
     try:
         spec = importlib.util.spec_from_file_location(modulname, pfad)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
-        print(f"âœ… Modul geladen: {modulname}")
+        print(f"✅ Modul geladen: {modulname}")
         return True
     except Exception as e:
-        print(f"âŒ Fehler in {modulname}: {e}")
+        print(f"❌ Fehler in {modulname}: {e}")
         return False
 
 # === SYSTEMVORBEREITUNG ===
 def vorbereiten():
-    print("ðŸ”§ Initialisierung gestartet...")
+    print("🔧 Initialisierung gestartet...")
     for ordner in ORDNER:
         pfad = BASE / ordner
         if not pfad.exists():
             pfad.mkdir(parents=True, exist_ok=True)
-            print(f"ðŸ“ Erstellt: {ordner}")
+            print(f"📁 Erstellt: {ordner}")
         else:
-            print(f"ðŸ“ OK: {ordner}")
+            print(f"📁 OK: {ordner}")
     spreche("System AUREON startet Verbindungsscans und Modulverkettung.")
 
 # === HAUPTPROZESS ===
@@ -71,23 +71,23 @@ def starten():
 
     fehlende = [m for m, s in status if not s]
     if fehlende:
-        spreche("Einige Komponenten fehlen. Supervisor-Modus unvollstÃ¤ndig.")
-        print("ðŸ”º Fehlerhafte Komponenten:", fehlende)
+        spreche("Einige Komponenten fehlen. Supervisor-Modus unvollständig.")
+        print("🔺 Fehlerhafte Komponenten:", fehlende)
     else:
-        spreche("Alle Module bereit. AUREON Ã¼bernimmt jetzt die Kontrolle.")
-        print("ðŸŸ¢ Supervisor-Modus aktiviert. Keine Schleife. Kein Wiederholen.")
+        spreche("Alle Module bereit. AUREON übernimmt jetzt die Kontrolle.")
+        print("🟢 Supervisor-Modus aktiviert. Keine Schleife. Kein Wiederholen.")
         uebernehme_kontrolle()
 
-# === ÃœBERNAHME DURCH AUREON ===
+# === ÜBERNAHME DURCH AUREON ===
 def uebernehme_kontrolle():
-    print("ðŸ” AUREON Ã¼bernimmt jetzt alle Verbindungen.")
+    print("🔐 AUREON übernimmt jetzt alle Verbindungen.")
     spreche("Der Zugriff ist gesichert. Verbindung zu KNEO und LEX aktiv.")
     # Hier kannst du systemweite Initialisierungen vornehmen
-    # z.â€¯B.: NetzwerkÃ¼berwachung starten, Sprachsteuerung aktivieren, Tasks laden
+    # z. B.: Netzwerküberwachung starten, Sprachsteuerung aktivieren, Tasks laden
     os.system("python lex_voice_core.py")  # Direkt Sprachsteuerung starten
     exit(0)
 
 # === STARTBLOCK ===
 if __name__ == "__main__":
-    print("ðŸ§  AUREON MasterCore wird geladen...")
+    print("🧠 AUREON MasterCore wird geladen...")
     starten()

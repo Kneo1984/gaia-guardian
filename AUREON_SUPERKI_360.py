@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # AUREON_SUPERKI_360.py
 import os
 import time
@@ -11,12 +11,12 @@ engine = pyttsx3.init()
 engine.setProperty('rate', 160)
 
 def speak(text):
-    print(f"ðŸ§  AUREON sagt: {text}")
+    print(f"🧠 AUREON sagt: {text}")
     engine.say(text)
     engine.runAndWait()
 
 def system_overview(base_path):
-    speak("Ich beginne mit der vollstÃ¤ndigen SystemÃ¼bersicht.")
+    speak("Ich beginne mit der vollständigen Systemübersicht.")
     summary = {}
     for root, dirs, files in os.walk(base_path):
         for file in files:
@@ -42,7 +42,7 @@ def web_research(query):
         speak(f"Fehler bei der Netzrecherche: {e}")
 
 def analyze_and_repair():
-    speak("Ich prÃ¼fe deine Python-Skripte auf Fehler und doppelte Dateien.")
+    speak("Ich prüfe deine Python-Skripte auf Fehler und doppelte Dateien.")
     base = os.getcwd()
     duplicates = {}
     py_files = []
@@ -60,10 +60,10 @@ def analyze_and_repair():
     if duplicates:
         speak(f"Ich habe doppelte Dateien gefunden: {sum(len(v) for v in duplicates.values())} Dateien.")
         for size, files in duplicates.items():
-            speak(f"DateigrÃ¶ÃŸe {size} Bytes: {files}")
+            speak(f"Dateigröße {size} Bytes: {files}")
     else:
         speak("Keine doppelten Dateien gefunden.")
-    speak("Fehlerkorrektur-Modul ist in Entwicklung und wird bald ergÃ¤nzt.")
+    speak("Fehlerkorrektur-Modul ist in Entwicklung und wird bald ergänzt.")
 
 def main():
     speak("Super KI AUREON startet jetzt.")
@@ -71,7 +71,7 @@ def main():
     system_summary = system_overview(base_path)
     analyze_and_repair()
     web_research("Neueste Cybersecurity-Bedrohungen 2025")
-    speak("Analyse abgeschlossen. Ich warte auf deine nÃ¤chsten Befehle.")
+    speak("Analyse abgeschlossen. Ich warte auf deine nächsten Befehle.")
 
 if __name__ == "__main__":
     main()

@@ -1,14 +1,14 @@
-ï»¿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # aurora_core/aurora_voice_input.py
 
 import speech_recognition as sr
 
 recognizer = sr.Recognizer()
 
-def hÃ¶r_aurora():
+def hör_aurora():
     try:
         with sr.Microphone() as quelle:
-            print("[AURORA]  Ich hÃ¶re...")
+            print("[AURORA]  Ich höre...")
             audio = recognizer.listen(quelle, timeout=5, phrase_time_limit=10)
             text = recognizer.recognize_google(audio, language="de-DE")
             print(f"[DU SAGST] {text}")

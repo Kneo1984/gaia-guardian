@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # This extension demonstrates some advanced features of the Python ISAPI
 # framework.
 # We demonstrate:

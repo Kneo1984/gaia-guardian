@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # AUREON_MISSIONAI_LOGIC_CORE.py
 import os
 from datetime import datetime
@@ -35,11 +35,11 @@ def analysiere_missionen():
             with open(pfad, "r", encoding="utf-8", errors="ignore") as f:
                 inhalt = f.read()
             score = gewichtung(file + " " + inhalt)
-            missionen.append((score, file, inhalt.strip().splitlines()[0] if inhalt else "ðŸ•³ï¸ Leer"))
+            missionen.append((score, file, inhalt.strip().splitlines()[0] if inhalt else "🕳️ Leer"))
     return sorted(missionen, key=lambda x: -x[0])
 
 def zeige_missionen(missionen):
-    print("ðŸ“‚ AUREON: Missionsanalyse abgeschlossen. Hier ist dein priorisiertes Log:")
+    print("📂 AUREON: Missionsanalyse abgeschlossen. Hier ist dein priorisiertes Log:")
     with open(LOG_PATH, "w", encoding="utf-8") as log:
         for score, name, preview in missionen:
             eintrag = f"[{score}] {name}: {preview}"
@@ -47,7 +47,7 @@ def zeige_missionen(missionen):
             log.write(eintrag + "\n")
 
 if __name__ == "__main__":
-    print("ðŸ§  AUREON MISSIONAI LOGIC CORE gestartet...")
+    print("🧠 AUREON MISSIONAI LOGIC CORE gestartet...")
     missionen = analysiere_missionen()
     zeige_missionen(missionen)
-    print(f"\nðŸ“ Sortierlog gespeichert unter: {LOG_PATH}")
+    print(f"\n📁 Sortierlog gespeichert unter: {LOG_PATH}")

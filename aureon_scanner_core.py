@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import os
 import time
 import json
@@ -11,20 +11,20 @@ if platform.system() == "Windows":
 else:
     basis = Path.home()
 
-# === AUSSCHLÃœSSE (optional) ===
+# === AUSSCHLÜSSE (optional) ===
 AUSSCHLUSS_PFADE = ["venv", ".cache", "AppData", "__pycache__"]
 
 # === OPTIONALE DB-BEREINIGUNG ===
 for file in basis.rglob("*.db"):
     try:
         file.unlink()
-        print(f"ðŸ—‘ï¸  Entfernt: {file}")
+        print(f"🗑️  Entfernt: {file}")
     except Exception:
         continue
 
 # === SCAN-FUNKTION mit Fortschrittsanzeige ===
 def scan_verzeichnisse():
-    print("ðŸ“¡ Starte AUREON-Speicheranalyse...\n")
+    print("📡 Starte AUREON-Speicheranalyse...\n")
     dateiliste = []
 
     # Schritt 1: Gesamtzahl berechnen
@@ -35,7 +35,7 @@ def scan_verzeichnisse():
         gesamt += len(files)
 
     if gesamt == 0:
-        print("âš ï¸  Keine Dateien gefunden. Pfad prÃ¼fen.")
+        print("⚠️  Keine Dateien gefunden. Pfad prüfen.")
         return
 
     # Schritt 2: Datei-Scan mit Fortschritt
@@ -52,14 +52,14 @@ def scan_verzeichnisse():
                 eintrag = {
                     "Dateiname": datei,
                     "Pfad": str(pfad),
-                    "GrÃ¶ÃŸe": f"{stat.st_size} Bytes",
+                    "Größe": f"{stat.st_size} Bytes",
                     "Zeit": time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(stat.st_mtime))
                 }
                 dateiliste.append(eintrag)
 
                 zaehler += 1
                 prozent = (zaehler / gesamt) * 100
-                print(f"ðŸ”„ [{zaehler}/{gesamt}] {eintrag['Pfad']} ({eintrag['GrÃ¶ÃŸe']}) - {prozent:.1f}%")
+                print(f"🔄 [{zaehler}/{gesamt}] {eintrag['Pfad']} ({eintrag['Größe']}) - {prozent:.1f}%")
 
             except Exception:
                 continue
@@ -69,8 +69,8 @@ def scan_verzeichnisse():
     with open(result_path, "w", encoding="utf-8") as f:
         json.dump(dateiliste, f, indent=2, ensure_ascii=False)
 
-    print(f"\nâœ… Scan abgeschlossen: {len(dateiliste)} Dateien erkannt.")
-    print(f"ðŸ’¾ Ergebnisse gespeichert in: {result_path}")
+    print(f"\n✅ Scan abgeschlossen: {len(dateiliste)} Dateien erkannt.")
+    print(f"💾 Ergebnisse gespeichert in: {result_path}")
 
 # === HAUPTSTART ===
 if __name__ == "__main__":

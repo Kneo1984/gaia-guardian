@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # ADO enumerated constants documented on MSDN:
 # https://learn.microsoft.com/en-us/sql/ado/reference/ado-api/ado-enumerated-constants
 # TODO: Update to https://learn.microsoft.com/en-us/sql/ado/reference/ado-api/ado-enumerated-constants

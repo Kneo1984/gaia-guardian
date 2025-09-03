@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import tokenize
 
 from pywin import default_scintilla_encoding

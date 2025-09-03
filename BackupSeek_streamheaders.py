@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ## demonstrates using BackupSeek to enumerate data streams for a file
 import struct
 

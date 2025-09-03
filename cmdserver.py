@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # cmdserver.py
 
 # Demo code that is not Pythonwin related, but too good to throw away...

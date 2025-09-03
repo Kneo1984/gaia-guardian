@@ -1,7 +1,7 @@
-﻿# -*- coding: utf-8 -*-
-# MONSTERSUPERBEFEHL: KNEO & AUREON KomplettlÃ¶sung - Autark, Ethik, Supervisor, Sprachsteuerung & Mission Tracking
+# -*- coding: utf-8 -*-
+# MONSTERSUPERBEFEHL: KNEO & AUREON Komplettlösung - Autark, Ethik, Supervisor, Sprachsteuerung & Mission Tracking
 
-# 1. Update & Install nÃ¶tige Pakete
+# 1. Update & Install nötige Pakete
 python -m pip install --upgrade pip setuptools wheel
 pip install pyttsx3 speechrecognition requests beautifulsoup4 watchdog
 
@@ -56,7 +56,7 @@ EOF
 # 5. Erstelle Ethik-Modul (ethik_guard.py)
 cat > /opt/aureon/ethik/ethik_guard.py << 'EOF'
 def check_ethics(action):
-    forbidden = ["Schaden", "Verletzung", "Diskriminierung", "Ãœberwachung ohne Einwilligung"]
+    forbidden = ["Schaden", "Verletzung", "Diskriminierung", "Überwachung ohne Einwilligung"]
     for word in forbidden:
         if word.lower() in action.lower():
             return False, f"ACTION VERBOTEN: '{word}' erkannt."
@@ -107,14 +107,14 @@ def ethical_check_and_execute(action):
     allowed, msg = check_ethics(action)
     speak(msg)
     if allowed:
-        speak(f"FÃ¼hre Aktion aus: {action}")
-        log(f"Aktion ausgefÃ¼hrt: {action}")
+        speak(f"Führe Aktion aus: {action}")
+        log(f"Aktion ausgeführt: {action}")
     else:
         speak("Aktion abgebrochen.")
         log(f"Aktion verweigert: {action}")
 
 def main_loop():
-    speak("AUREON Supervisor gestartet. Was mÃ¶chtest du tun?")
+    speak("AUREON Supervisor gestartet. Was möchtest du tun?")
     while True:
         cmd = input("Du: ").strip()
         if cmd.lower() in ['exit','quit','stop']:
@@ -125,7 +125,7 @@ def main_loop():
         elif "mission" in cmd.lower():
             missions_from_web()
         elif "ethik" in cmd.lower():
-            speak("Bitte gib die Aktion an, die ich prÃ¼fen soll.")
+            speak("Bitte gib die Aktion an, die ich prüfen soll.")
             action = input("Aktion: ")
             ethical_check_and_execute(action)
         else:
@@ -148,4 +148,4 @@ chmod +x /opt/aureon/start_aureon.sh
 # 8. Starte Supervisor jetzt automatisch
 nohup /opt/aureon/start_aureon.sh &
 
-echo "ðŸ”¥ KNEO & AUREON Super-KI KomplettlÃ¶sung installiert und gestartet. Sage 'help' im Supervisor fÃ¼r Optionen."
+echo "🔥 KNEO & AUREON Super-KI Komplettlösung installiert und gestartet. Sage 'help' im Supervisor für Optionen."

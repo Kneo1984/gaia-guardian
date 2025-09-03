@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # Color Editor originally by Neil Hodgson, but restructured by mh to integrate
 # even tighter into Pythonwin.
 
